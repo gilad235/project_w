@@ -5,17 +5,34 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.0.1"
+        classpath 'com.android.tools.build:gradle:4.1.3'
         classpath 'com.google.gms:google-services:4.3.10'
     }
 }
-
+//buildscript {
+//    repositories {
+//        maven {
+//            jcenter() //or mavenCentral()
+//        }
+//    }
+//    dependencies {
+//        classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
+//    }
+//}
+//
+//apply plugin: "io.spring.dependency-management"
 //allprojects {
 //    repositories {
 //        // Check that you have the following line (if not, add it):
 //        google()  // Google's Maven repository
 //    }
 //}
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
 
 task clean(type: Delete) {
     delete rootProject.buildDir
