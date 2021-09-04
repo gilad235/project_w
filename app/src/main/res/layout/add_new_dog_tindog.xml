@@ -1,6 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/container"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingBottom="@dimen/activity_vertical_margin"
+tools:context=".ui.login.LoginActivity">
+
+<EditText
+    android:id="@+id/dog_name"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="30dp"
+    android:hint="@string/dog_name"
+    android:inputType="textPersonName"
+    android:selectAllOnFocus="true"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/gender"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dog_name" />
+
+    <RadioGroup
+        android:id="@+id/choose_gender"
+
+        android:layout_width="268dp"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/dog_name"
+        app:layout_constraintRight_toRightOf="parent">
+
+
+        <RadioButton
+            android:id="@+id/male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="92dp"
+            android:layout_marginLeft="92dp"
+            android:checked="true"
+            android:text="@string/male"
+            app:layout_constraintLeft_toRightOf="@id/gender"
+            app:layout_constraintTop_toBottomOf="@id/dog_name" />
+
+        <RadioButton
+            android:id="@+id/female"
+            android:layout_width="103dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="64dp"
+            android:layout_marginRight="64dp"
+            android:text="@string/female"
+            app:layout_constraintRight_toRightOf="@id/gender"
+            app:layout_constraintTop_toBottomOf="@id/dog_name" />
+    </RadioGroup>
+
+<!--<EditText-->
+<!--    android:id="@+id/gender"-->
+<!--    android:layout_width="0dp"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_marginTop="8dp"-->
+<!--    android:hint="@string/gender"-->
+<!--    android:imeActionLabel="@string/action_sign_in_short"-->
+<!--    android:imeOptions="actionDone"-->
+<!--    android:inputType="textPersonName"-->
+<!--    android:selectAllOnFocus="true"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintStart_toStartOf="parent"-->
+<!--    app:layout_constraintTop_toBottomOf="@+id/dog_name" />-->
+
+<EditText
+    android:id="@+id/age"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:hint="@string/age"
+    android:imeActionLabel="@string/action_sign_in_short"
+    android:imeOptions="actionDone"
+    android:inputType="phone"
+    android:selectAllOnFocus="true"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/gender" />
+<EditText
+        android:id="@+id/dog_phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="@string/dog_phone"
+        android:imeActionLabel="@string/action_sign_in_short"
+        android:imeOptions="actionDone"
+        android:inputType="phone"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/age" />
+    <EditText
+        android:id="@+id/dog_pic"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="@string/picture"
+        android:imeActionLabel="@string/action_sign_in_short"
+        android:imeOptions="actionDone"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dog_phone" />
+    <EditText
+        android:id="@+id/dog_text"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:hint="@string/text"
+        android:imeActionLabel="@string/action_sign_in_short"
+        android:imeOptions="actionDone"
+        android:inputType="textMultiLine"
+        android:gravity="top"
+        android:selectAllOnFocus="true"
+        android:maxLength="@integer/max_length"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dog_pic" />
+
+    <Button
+    android:id="@+id/save"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="start"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="64dp"
+    android:enabled="false"
+    android:text="@string/save"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/text"
+    app:layout_constraintVertical_bias="0.2" />
+
+<ProgressBar
+    android:id="@+id/loading"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="64dp"
+    android:layout_marginBottom="64dp"
+    android:visibility="gone"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="@+id/dog_name"
+    app:layout_constraintStart_toStartOf="@+id/dog_name"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
