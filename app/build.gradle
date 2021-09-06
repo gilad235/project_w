@@ -3,6 +3,8 @@
 
 plugins {
     id 'com.android.application'
+//    id "io.spring.dependency-management" version "1.0.3.RELEASE"
+
 }
 
 apply plugin: 'com.google.gms.google-services'  // Google Services plugin

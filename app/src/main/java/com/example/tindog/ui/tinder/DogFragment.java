@@ -1,27 +1,20 @@
-package com.example.tindog.ui.fff;
+package com.example.tindog.ui.tinder;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.tindog.R;
-import com.example.tindog.ui.tinder.AddNewDog;
+import com.example.tindog.ui.fff.FindFluffyFriendFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FindFluffyFriendFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class FindFluffyFriendFragment extends Fragment {
-
-
-    public FindFluffyFriendFragment() {
+public class DogFragment extends Fragment {
+    public DogFragment() {
         // Required empty public constructor
     }
 
@@ -31,11 +24,18 @@ public class FindFluffyFriendFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FindFluffyFriendFragment.
+     * @return A new instance of fragment DogFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FindFluffyFriendFragment newInstance(String param1, String param2) {
-        FindFluffyFriendFragment fragment = new FindFluffyFriendFragment();
+    public static DogFragment newInstance(String param1, String param2) {
+        DogFragment fragment = new DogFragment();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    public static Fragment newInstance() {
+        DogFragment fragment = new DogFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -54,15 +54,19 @@ public class FindFluffyFriendFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_find_fluffy_friend, container, false);
-        FloatingActionButton add_button = (FloatingActionButton) view.findViewById(R.id.add_Friend);
-        FloatingActionButton remove_button = (FloatingActionButton) view.findViewById(R.id.removeFriend);
-
+        View view = inflater.inflate(R.layout.fragment_dog, container, false);
+        FloatingActionButton add_button = (FloatingActionButton) view.findViewById(R.id.addFriend);
         add_button.setOnClickListener(v -> {
             Intent intentToOpenAddDog = new Intent(v.getContext(), AddNewDog.class);
             v.getContext().startActivity(intentToOpenAddDog);
 
         });
         return view;
+
+
+
+
     }
+
+
 }
