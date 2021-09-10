@@ -8,8 +8,7 @@
         android:id="@+id/user_img"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_margin="@dimen/text_margin"
-        />
+        android:layout_margin="@dimen/text_margin" />
 
     <TextView
         android:id="@+id/user_name"
@@ -19,13 +18,11 @@
         android:textAppearance="?attr/textAppearanceListItem" />
 
 
-
-
     <ImageView
         android:id="@+id/user_dog_pic"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_margin="@dimen/text_margin"/>
+        android:layout_margin="@dimen/text_margin" />
 
     <TextView
         android:id="@+id/dog_name"
@@ -34,3 +31,5 @@
         android:layout_margin="@dimen/text_margin"
         android:textAppearance="?attr/textAppearanceListItem" />
 </LinearLayout>
+
+

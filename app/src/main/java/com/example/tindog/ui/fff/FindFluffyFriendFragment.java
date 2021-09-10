@@ -1,6 +1,5 @@
 package com.example.tindog.ui.fff;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.tindog.R;
-import com.example.tindog.ui.tinder.AddNewDog;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,15 +51,6 @@ public class FindFluffyFriendFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_find_fluffy_friend, container, false);
-        FloatingActionButton add_button = (FloatingActionButton) view.findViewById(R.id.add_Friend);
-        FloatingActionButton remove_button = (FloatingActionButton) view.findViewById(R.id.removeFriend);
-
-        add_button.setOnClickListener(v -> {
-            Intent intentToOpenAddDog = new Intent(v.getContext(), AddNewDog.class);
-            v.getContext().startActivity(intentToOpenAddDog);
-
-        });
-        return view;
+        return inflater.inflate(R.layout.fragment_find_fluffy_friend, container, false);
     }
 }

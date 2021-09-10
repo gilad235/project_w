@@ -24,10 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tindog.MainActivity;
-import com.example.tindog.MapsActivity;
 import com.example.tindog.R;
-import com.example.tindog.ui.login.LoginViewModel;
-import com.example.tindog.ui.login.LoginViewModelFactory;
 import com.example.tindog.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {

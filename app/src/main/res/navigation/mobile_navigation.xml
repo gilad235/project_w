@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/nav_tindog"
-        android:name="com.example.tindog.ui.tinder.DogFragment"
+        android:name="com.example.tindog.ui.tinder.DogListFragment"
         android:label="@string/menu_tindog"
         tools:layout="@layout/fragment_dog_list" />
 

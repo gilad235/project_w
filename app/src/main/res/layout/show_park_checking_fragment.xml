@@ -12,14 +12,15 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:srcCompat="@android:drawable/ic_menu_add"
+        android:contentDescription="@string/checkin" />
 
 
     <fragment
-        android:id="@+id/list_fff"
-        android:name="com.example.tindog.ui.fff.FindFluffyFriendListFragment"
-        android:label="@string/menu_fff"
-        tools:layout="@layout/fragment_find_fluffy_friend_list"
+        android:id="@+id/show_park_checkin"
+        android:name="com.example.tindog.ui.park.ShowParkCheckinListFragment"
+        android:label="@string/show_park_checkin"
+        tools:layout="@layout/show_park_checking_list"
         android:layout_height="match_parent"
         android:layout_width="match_parent"/>
 

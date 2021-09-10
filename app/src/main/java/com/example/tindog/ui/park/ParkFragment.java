@@ -3,7 +3,10 @@ package com.example.tindog.ui.park;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +20,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -98,6 +102,27 @@ public class ParkFragment extends Fragment {
                     }
                 }
             });
+
+            googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                @Override
+                public boolean onMarkerClick(Marker marker) {
+                    if (marker!=null){
+                        ShowParkChekinFragment fragment = new ShowParkChekinFragment();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("parkName", marker.getTitle());
+                        fragment.setArguments(bundle);
+                        FragmentManager fragManger = getParentFragmentManager();
+
+                        fragManger.beginTransaction().replace(R.id.mainView,fragment).addToBackStack(null).commit();
+
+
+                        return true;
+                    }
+                    return false;
+                }}
+
+                );
+
         }
     };
 

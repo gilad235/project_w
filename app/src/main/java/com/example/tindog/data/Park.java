@@ -2,13 +2,16 @@ package com.example.tindog.data;
 
 import com.google.firebase.database.Exclude;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class Park {
     public String name;
     public float x;
     public float y;
+    public ArrayList<User> checkins;
 
 
     public Park() {
@@ -19,6 +22,10 @@ public class Park {
         this.name = name;
         this.x = x;
         this.y = y;
+        this.checkins = new ArrayList<User>();
+    }
+    private void loadCheckins(){
+        //here load the checking from fire base
     }
 
     // [START post_to_map]
@@ -29,5 +36,12 @@ public class Park {
         result.put("x", x);
         result.put("y", y);
         return result;
+    }
+
+    public void add_checkIn(User user){
+        checkins.add(user);
+        //add the checking to firebase here
+
+
     }
 }
