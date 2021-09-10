@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="410dp"
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/user_img"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_margin="@dimen/text_margin"
-        />
+        android:layout_margin="@dimen/text_margin" />
 
     <TextView
         android:id="@+id/user_name"
@@ -19,13 +19,11 @@
         android:textAppearance="?attr/textAppearanceListItem" />
 
 
-
-
     <ImageView
         android:id="@+id/user_dog_pic"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_margin="@dimen/text_margin"/>
+        android:layout_margin="@dimen/text_margin" />
 
     <TextView
         android:id="@+id/dog_name"
@@ -33,4 +31,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
         android:textAppearance="?attr/textAppearanceListItem" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/removeFriend"
+        android:layout_width="wrap_content"
+        android:layout_height="66dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="16dp"
+        app:srcCompat="@android:drawable/ic_delete" />
 </LinearLayout>
