@@ -80,7 +80,6 @@ public class DogListFragment extends Fragment {
             }
 
 
-
             DatabaseReference database = FirebaseDatabase.getInstance().getReference();
             DatabaseReference myRef = database.child("dogs");
             myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
