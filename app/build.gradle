@@ -3,7 +3,7 @@
 
 plugins {
     id 'com.android.application'
-    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+//    id "io.spring.dependency-management" version "1.0.3.RELEASE"
 
 }
 
@@ -70,10 +70,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.0'
 
 
-
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
-
 }

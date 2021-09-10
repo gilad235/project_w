@@ -6,9 +6,7 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the "MyLocation" functionality.
     -->
-
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
-        android:protectionLevel="signature"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -24,7 +22,10 @@
             android:name=".ui.dogform.DogFormActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.park.ParkMainActivity"
+            android:name=".ui.tinder.AddNewDog"
+            android:exported="true" />
+        <activity
+            android:name=".ui.tinder.openFragment"
             android:exported="true" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -53,6 +54,10 @@
             android:name=".ui.login.LoginActivity"
             android:exported="true"
             android:label="@string/title_activity_login" />
+        <activity
+            android:name=".MapsActivity"
+            android:exported="true"
+            android:label="@string/title_activity_maps" />
     </application>
 
 </manifest>
