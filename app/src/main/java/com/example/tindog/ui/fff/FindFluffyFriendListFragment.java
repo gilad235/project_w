@@ -14,13 +14,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.tindog.CurrentUserDetails;
 import com.example.tindog.R;
 import com.example.tindog.data.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,13 +90,38 @@ public class FindFluffyFriendListFragment extends Fragment {
                         Log.e("firebase", "Error getting data", task.getException());
                     } else {
                         Log.d("firebase", String.valueOf(task.getResult().getValue()));
-                        List<User> items = new ArrayList<User>();
+//                        List<User> items = new ArrayList<>();
                         for (DataSnapshot snapshot : task.getResult().getChildren()) {
                             User user = snapshot.getValue(User.class);
-                            items.add(user);
+                            if (user.getId().equals( CurrentUserDetails.getInstance().getUserID())) {
+//                                items=user.getFriends();
+                                DatabaseReference myRef1 = myRef.child(user.getId());
+                                DatabaseReference myRef2 = myRef1.child("friends");
+                                myRef2.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        List<User> items = new ArrayList<>();
+
+                                        for (DataSnapshot postSnapshot: snapshot.getChildren()){
+                                            User user = postSnapshot.getValue(User.class);
+                                            items.add(user);
+                                        }
+                                        recyclerView.setAdapter(new FriendRecyclerViewAdapter(items));
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+
+
+                            }
                         }
 
-                        recyclerView.setAdapter(new FriendRecyclerViewAdapter(items));
+//                        recyclerView.setAdapter(new FriendRecyclerViewAdapter(items));
                     }
                 }
             });

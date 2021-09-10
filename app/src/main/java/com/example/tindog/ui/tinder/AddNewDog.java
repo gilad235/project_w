@@ -10,8 +10,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.tindog.R;
 import com.example.tindog.data.Dog;
@@ -118,7 +116,7 @@ public class AddNewDog extends AppCompatActivity {
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         DatabaseReference myRef = database.child("dogs");
         myRef.child(curDog.getName()).setValue(curDog);
-        Intent i = new Intent(v.getContext(),openFragment.class);
+        Intent i = new Intent(v.getContext(), openFragmentTindog.class);
         finish();
         v.getContext().startActivity(i);
     });
