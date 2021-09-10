@@ -19,7 +19,9 @@ import com.example.tindog.ui.dogform.DogFormActivity;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link Dog}.
@@ -27,7 +29,7 @@ import java.util.List;
  */
 public class DogRecyclerViewAdapter extends RecyclerView.Adapter<DogRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Dog> mValues;
+    private  List<Dog> mValues;
 
     public DogRecyclerViewAdapter(List<Dog> items) {
         mValues = items;
@@ -93,4 +95,8 @@ public class DogRecyclerViewAdapter extends RecyclerView.Adapter<DogRecyclerView
             return super.toString() + " '" + mNameView.getText() + "'";
         }
     }
+
+
+
+
 }

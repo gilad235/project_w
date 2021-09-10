@@ -4,10 +4,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import android.content.Intent;
 import android.util.Patterns;
 
-import com.example.tindog.MapsActivity;
 import com.example.tindog.data.LoginRepository;
 import com.example.tindog.data.Result;
 import com.example.tindog.data.model.LoggedInUser;

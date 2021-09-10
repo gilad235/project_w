@@ -18,6 +18,8 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <string name="tindog_settings">Settings</string>
+
     <string name="menu_home">Home</string>
     <string name="menu_tindog">Tindog</string>
     <string name="menu_park">Park</string>
@@ -33,4 +35,17 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="checkin">checkin</string>
+    <string name="show_park_checkin">show park checkin</string>
+    <string name="min_age">minimum age</string>
+    <string name="min_age_spinner">please select</string>
+    <string name="gender">Gender</string>
+    <string name="male">male</string>
+    <string name="female">female</string>
+    <string name="both">both</string>
+    <string name="castrated">Castrated</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="done">apply</string>
+    <string name="max_age">maximum age</string>
 </resources>
