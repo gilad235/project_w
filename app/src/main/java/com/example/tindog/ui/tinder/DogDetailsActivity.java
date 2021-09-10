@@ -7,8 +7,6 @@ import android.os.Bundle;
 import com.example.tindog.R;
 import com.example.tindog.data.Dog;
 import com.example.tindog.databinding.ActivityDogDetailsBinding;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 public class DogDetailsActivity extends AppCompatActivity {
 
@@ -36,8 +34,6 @@ public class DogDetailsActivity extends AppCompatActivity {
         } else {
             binding.dogGender.setText("Gender: female");
         }
-        Picasso.get().load(dog.pic).into(binding.img);
-
 
         binding.dogAge.setText("Age: " + dog.age);
         binding.dogPhone.setText("Phone: " + dog.phone);

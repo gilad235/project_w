@@ -12,9 +12,8 @@ import java.util.Map;
 public class Dog implements Serializable {
 
     public String name;
-    public double age;
+    public int age;
     public boolean male;
-    public boolean isGenderFill;
     public boolean castrated;
     public String pic;
     public String phone;
@@ -22,17 +21,12 @@ public class Dog implements Serializable {
 
     public Dog() {
         // Default constructor required for calls to DataSnapshot.getValue(Post.class)
-        this.age = -1.0;
-        this.isGenderFill = false;
-
-
     }
 
-    public Dog(String name, double age, boolean male, boolean castrated, String pic) {
+    public Dog(String name, int age, boolean male, boolean castrated, String pic) {
         this.name = name;
         this.age = age;
         this.male = male;
-        this.isGenderFill = true;
         this.castrated = castrated;
         this.pic = pic;
         this.phone = phone;
@@ -53,43 +47,4 @@ public class Dog implements Serializable {
         return result;
     }
     // [END post_to_map]
-
-
-    public void setAge(double age) {
-        this.age = age;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public void setCastrated(boolean castrated) {
-        this.castrated = castrated;
-    }
-
-    public void setMale(boolean male) {
-        this.male = male;
-        this.isGenderFill = true;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public void setPic(String pic) {
-        this.pic = pic;
-    }
-
-    public boolean allFill() {
-        return ((this.name != null && !this.name.equals("")) && this.age != -1 && (this.phone != null && !this.phone.equals("")) &&
-                (this.pic != null && !this.pic.equals("")) && (this.text != null && !this.text.equals("")) && this.isGenderFill);
-    }
 }
