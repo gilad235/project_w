@@ -1,40 +1,20 @@
 package com.example.tindog.ui.login;
 
-import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
-import android.content.Intent;
-import android.os.Bundle;
-
-import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.view.KeyEvent;
-import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.tindog.CurrentUserDetails;
 import com.example.tindog.MainActivity;
-import com.example.tindog.MapsActivity;
 import com.example.tindog.NewUserActivity;
-import com.example.tindog.R;
 import com.example.tindog.data.User;
-import com.example.tindog.ui.login.LoginViewModel;
-import com.example.tindog.ui.login.LoginViewModelFactory;
 import com.example.tindog.databinding.ActivityLoginBinding;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
@@ -52,6 +32,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Arrays;
 import java.util.List;
+
+//import com.example.tindog.MapsActivity;
 
 public class LoginActivity extends AppCompatActivity {
 

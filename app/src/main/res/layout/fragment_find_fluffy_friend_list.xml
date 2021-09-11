@@ -9,4 +9,6 @@
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
     tools:context=".ui.fff.FindFluffyFriendListFragment"
-    tools:listitem="@layout/fragment_find_fluffy_friend_item" />
+    tools:listitem="@layout/fragment_find_fluffy_friend_item"
+
+    />
