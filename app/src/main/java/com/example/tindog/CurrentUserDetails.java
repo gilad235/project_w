@@ -2,8 +2,11 @@ package com.example.tindog;
 
 import android.app.Application;
 
+import com.example.tindog.ui.tinder.FilterData;
+
 public class CurrentUserDetails extends Application {
     private String userId;
+    public FilterData userFilter;
     public String getUserID(){
         return userId;
     }
@@ -18,6 +21,7 @@ public class CurrentUserDetails extends Application {
         super.onCreate();
         instance=this;
         this.userId="";
+        this.userFilter = new FilterData();
     }
 
     private static CurrentUserDetails instance=null;

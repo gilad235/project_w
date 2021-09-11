@@ -10,6 +10,7 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.tindog.CurrentUserDetails;
 import com.example.tindog.R;
 
 
@@ -24,6 +25,7 @@ public class TindogSetting extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tindog_settings);
+        filterData = CurrentUserDetails.getInstance().userFilter;
         Button apply = findViewById(R.id.buttonFinish);
         Spinner minAgeSpinner = findViewById(R.id.min_age_spinner);
         Spinner maxAgeSpinner = findViewById(R.id.max_age_spinner);
@@ -42,6 +44,7 @@ public class TindogSetting extends AppCompatActivity {
         RadioButton male_button = findViewById(R.id.male_button);
         RadioButton female_button =findViewById(R.id.female_button);
         RadioButton both_gen_button = findViewById(R.id.both_button);
+        //todo edit default button to be sync with filterdata
         male_button.setOnClickListener(v->{
             filterData.setGender(Choice.first);
 
