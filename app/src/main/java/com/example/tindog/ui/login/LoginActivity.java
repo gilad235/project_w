@@ -192,6 +192,7 @@ public class LoginActivity extends AppCompatActivity {
                                     for (DataSnapshot snap : task.getResult().getChildren()) {
                                         User cur_user = snap.getValue(User.class);
                                         if (cur_user.getId().equals(user.getUid())) {
+                                            userSingleton.setCurUser(cur_user);
                                             user_exist_flag = true;
                                             break;
                                         }
@@ -210,6 +211,11 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         });
                     }
+                    else{
+                        database.setValue("users");
+                        Intent myIntent = new Intent(LoginActivity.this, NewUserActivity.class);
+                        startActivity(myIntent);}
+
                 }
 
                 @Override

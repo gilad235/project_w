@@ -18,15 +18,13 @@ public class Park {
         // Default constructor required for calls to DataSnapshot.getValue(Post.class)
     }
 
-    public Park(String name, float x, float y) {
+    public Park(String name, float x, float y,ArrayList<User> users) {
         this.name = name;
         this.x = x;
         this.y = y;
-        this.checkins = new ArrayList<User>();
+        this.checkins = users;
     }
-    private void loadCheckins(){
-        //here load the checking from fire base
-    }
+
 
     // [START post_to_map]
     @Exclude
@@ -35,6 +33,8 @@ public class Park {
         result.put("name", name);
         result.put("x", x);
         result.put("y", y);
+        result.put("users", checkins);
+
         return result;
     }
 
