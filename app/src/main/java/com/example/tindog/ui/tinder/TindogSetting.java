@@ -1,5 +1,6 @@
 package com.example.tindog.ui.tinder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -35,7 +36,10 @@ public class TindogSetting extends AppCompatActivity {
         apply.setEnabled(true);
         apply.setOnClickListener(v->{
             //todo edit the filters
+//            finish();
+            Intent i = new Intent(v.getContext(), openFragmentTindog.class);
             finish();
+            v.getContext().startActivity(i);
         });
 
         radioGender.check(R.id.both_button);
@@ -70,14 +74,17 @@ public class TindogSetting extends AppCompatActivity {
             filterData.setCastrated(Choice.both);
         });
 
-        Integer[] items = new Integer[20];
-        ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this,
-                android.R.layout.simple_spinner_item,items);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        minAgeSpinner.setAdapter(adapter);
-        filterData.setMinAge((Integer) minAgeSpinner.getSelectedItem());
+//        Integer[] items = new Integer[20];
+//        ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this,
+//                android.R.layout.simple_spinner_item,items);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        minAgeSpinner.setAdapter(adapter);
+//        filterData.setMinAge((Integer) minAgeSpinner.getSelectedItem());
         //todo check if this works and add a spinner for the max age
 //        minAgeSpinner.setOnItemSelectedListener(this);
+
+
+
 
     }
 }

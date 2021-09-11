@@ -57,8 +57,15 @@ public class DogFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dog, container, false);
         FloatingActionButton add_button = (FloatingActionButton) view.findViewById(R.id.addFriend);
+        FloatingActionButton filter_button = (FloatingActionButton) view.findViewById(R.id.filter);
         add_button.setOnClickListener(v -> {
             Intent intentToOpenAddDog = new Intent(v.getContext(), AddNewDog.class);
+            v.getContext().startActivity(intentToOpenAddDog);
+
+        });
+
+        filter_button.setOnClickListener(v -> {
+            Intent intentToOpenAddDog = new Intent(v.getContext(), TindogSetting.class);
             v.getContext().startActivity(intentToOpenAddDog);
 
         });
