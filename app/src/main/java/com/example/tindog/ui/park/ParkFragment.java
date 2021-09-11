@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.example.tindog.R;
 import com.example.tindog.data.Park;
+import com.example.tindog.data.User;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -29,6 +30,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 public class ParkFragment extends Fragment {
 
@@ -47,6 +50,7 @@ public class ParkFragment extends Fragment {
         public void onMapReady(GoogleMap googleMap) {
             DatabaseReference database = FirebaseDatabase.getInstance().getReference();
             DatabaseReference myRef = database.child("parks");
+//            onTimeAddParks();
 //
 //            myRef.addChildEventListener(new ChildEventListener() {
 //                // TODO: implement the ChildEventListener methods as documented above
@@ -107,13 +111,9 @@ public class ParkFragment extends Fragment {
                 @Override
                 public boolean onMarkerClick(Marker marker) {
                     if (marker!=null){
-                        ShowParkChekinFragment fragment = new ShowParkChekinFragment();
-                        Bundle bundle = new Bundle();
-                        bundle.putString("parkName", marker.getTitle());
-                        fragment.setArguments(bundle);
-                        FragmentManager fragManger = getParentFragmentManager();
-
-                        fragManger.beginTransaction().replace(R.id.mainView,fragment).addToBackStack(null).commit();
+                        Intent intent = new Intent(getActivity(), parkCheckInActivity.class);
+                        intent.putExtra("parkName",marker.getTitle());
+                        startActivity(intent);
 
 
                         return true;
@@ -143,4 +143,21 @@ public class ParkFragment extends Fragment {
             mapFragment.getMapAsync(callback);
         }
     }
-}
+
+
+//    public void onTimeAddParks(){
+//        ArrayList<Park> parks = new ArrayList<>();
+//        parks.add(new Park("Gan Meir",(float)32.0731,(float)34.7709533,new ArrayList<User>()));
+//        parks.add(new Park("Kiryat Sefer Park",(float)32.069922,(float)34.7775208,new ArrayList<User>()));
+//        parks.add(new Park("Mordehai Garden",(float)32.069497,(float)34.772995,new ArrayList<User>()));
+//        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+//
+//        for(Park p: parks){
+//            db.child("parks").child(p.name).setValue(p);
+//
+//
+//        }
+
+
+
+    }

@@ -97,7 +97,6 @@ public class NewUserActivity extends AppCompatActivity {
             myRef.child(cur_user.getId()).setValue(cur_user);
             CurrentUserDetails userSingleton = CurrentUserDetails.getInstance();
             userSingleton.setCurUser(cur_user);
-
             Intent i = new Intent(v.getContext(), MainActivity.class);
             finish();
             v.getContext().startActivity(i);

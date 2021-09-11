@@ -214,12 +214,8 @@ public class LoginActivity extends AppCompatActivity {
                     else{
                         database.setValue("users");
                         Intent myIntent = new Intent(LoginActivity.this, NewUserActivity.class);
-                        startActivity(myIntent);
+                        startActivity(myIntent);}
 
-
-
-
-                    }
                 }
 
                 @Override

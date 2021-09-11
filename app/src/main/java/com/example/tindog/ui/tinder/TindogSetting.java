@@ -38,9 +38,11 @@ public class TindogSetting extends AppCompatActivity {
         apply.setOnClickListener(v->{
             //todo edit the filters
 //            finish();
-            Intent i = new Intent(v.getContext(), openFragmentTindog.class);
+//            Intent i = new Intent(v.getContext(), openFragmentTindog.class);
+
+
             finish();
-            v.getContext().startActivity(i);
+//            v.getContext().startActivity(i);
         });
 
         NumberPicker min_picker = findViewById(R.id.min_age_picker);

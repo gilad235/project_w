@@ -67,17 +67,25 @@ public class DogFragment extends Fragment {
         });
 
         filter_button.setOnClickListener(v -> {
-            closefragment();
+//            closefragment();
             Intent intentToOpenAddDog = new Intent(v.getContext(), TindogSetting.class);
-//            getFragmentManager().beginTransaction().remove(new DogFragment()).commit();
-
+//            getFragmentManagerManager().beginTransaction().remove(new DogFragment()).commit();
             v.getContext().startActivity(intentToOpenAddDog);
+            reloadFragment();
 
         });
         return view;
 
 
 
+
+    }
+    public void reloadFragment(){
+        Fragment curFrg = getParentFragmentManager().findFragmentByTag("dogs");
+        FragmentTransaction ft = getParentFragmentManager().beginTransaction();
+        ft.detach(curFrg);
+        ft.attach(curFrg);
+        ft.commit();
 
     }
     private void closefragment() {
