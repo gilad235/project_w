@@ -33,7 +33,7 @@ import java.util.List;
  * A fragment representing a list of Items.
  */
 public class DogListFragment extends Fragment {
-
+    View view;
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -73,7 +73,7 @@ public class DogListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_dog_list, container, false);
+        view = inflater.inflate(R.layout.fragment_dog_list, container, false);
 
 
 
@@ -117,6 +117,7 @@ public class DogListFragment extends Fragment {
                         }
 
                         recyclerView.setAdapter(new DogRecyclerViewAdapter(items));
+
                     }
                 }
             });
@@ -127,7 +128,53 @@ public class DogListFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        if (view instanceof RecyclerView) {
+            Context context = view.getContext();
+            RecyclerView recyclerView = (RecyclerView) view;
+            if (mColumnCount <= 1) {
+                recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            } else {
+                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+            }
 
+            super.onResume();
+            DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+            DatabaseReference myRef = database.child("dogs");
+            myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if (!task.isSuccessful()) {
+                        Log.e("firebase", "Error getting data", task.getException());
+                    } else {
+                        Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                        List<Dog> items = new ArrayList<Dog>();
+                        for (DataSnapshot snapshot : task.getResult().getChildren()) {
+
+                            Dog dog = snapshot.getValue(Dog.class);
+                            if (dog == null) {
+                                continue;
+                            }
+                            if ((myFilter.getCastrated() == Choice.both || (myFilter.getCastrated() == Choice.first && dog.castrated) ||
+                                    (myFilter.getCastrated() == Choice.second && !dog.castrated)) && //castrated matches filter
+                                    (myFilter.getGender() == Choice.both || (myFilter.getGender() == Choice.first && dog.male) ||
+                                            (myFilter.getGender() == Choice.second && !dog.male)) &&//gender matches filter
+                                    (myFilter.getMaxAge() >= dog.age && myFilter.getMinAge() <= dog.age)//age matches filter
+                            ) {
+                                items.add(dog);
+                            }
+                        }
+
+                        recyclerView.setAdapter(new DogRecyclerViewAdapter(items));
+
+                    }
+                }
+            });
+
+
+        }
+    }
 //    @Override
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //                             Bundle savedInstanceState) {

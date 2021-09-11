@@ -116,9 +116,9 @@ public class AddNewDog extends AppCompatActivity {
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         DatabaseReference myRef = database.child("dogs");
         myRef.child(curDog.getName()).setValue(curDog);
-        Intent i = new Intent(v.getContext(), openFragmentTindog.class);
+//        Intent i = new Intent(v.getContext(), openFragmentTindog.class);
         finish();
-        v.getContext().startActivity(i);
+//        v.getContext().startActivity(i);
     });
 
 

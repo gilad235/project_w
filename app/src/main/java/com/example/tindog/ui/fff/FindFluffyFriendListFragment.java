@@ -32,7 +32,7 @@ import java.util.List;
  * A fragment representing a list of Items.
  */
 public class FindFluffyFriendListFragment extends Fragment {
-
+    View view;
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
@@ -69,7 +69,7 @@ public class FindFluffyFriendListFragment extends Fragment {
                              Bundle savedInstanceState) {
 
 
-        View view = inflater.inflate(R.layout.fragment_find_fluffy_friend_list, container, false);
+        view = inflater.inflate(R.layout.fragment_find_fluffy_friend_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -127,5 +127,65 @@ public class FindFluffyFriendListFragment extends Fragment {
             });
         }
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        if (view instanceof RecyclerView) {
+            Context context = view.getContext();
+            RecyclerView recyclerView = (RecyclerView) view;
+            if (mColumnCount <= 1) {
+                recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            } else {
+                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+            }
+        super.onResume();
+
+
+            DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+            DatabaseReference myRef = database.child("users");
+            myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if (!task.isSuccessful()) {
+                        Log.e("firebase", "Error getting data", task.getException());
+                    } else {
+                        Log.d("firebase", String.valueOf(task.getResult().getValue()));
+//                        List<User> items = new ArrayList<>();
+                        for (DataSnapshot snapshot : task.getResult().getChildren()) {
+                            User user = snapshot.getValue(User.class);
+                            if (user.getId().equals( CurrentUserDetails.getInstance().getUserID())) {
+//                                items=user.getFriends();
+                                DatabaseReference myRef1 = myRef.child(user.getId());
+                                DatabaseReference myRef2 = myRef1.child("friends");
+                                myRef2.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        List<User> items = new ArrayList<>();
+
+                                        for (DataSnapshot postSnapshot: snapshot.getChildren()){
+                                            User user = postSnapshot.getValue(User.class);
+                                            items.add(user);
+                                        }
+                                        recyclerView.setAdapter(new FriendRecyclerViewAdapter(items));
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+
+
+                            }
+                        }
+
+//                        recyclerView.setAdapter(new FriendRecyclerViewAdapter(items));
+                    }
+                }
+            });
+        }
     }
 }
