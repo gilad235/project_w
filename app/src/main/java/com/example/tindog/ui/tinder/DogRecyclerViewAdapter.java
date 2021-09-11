@@ -98,5 +98,4 @@ public class DogRecyclerViewAdapter extends RecyclerView.Adapter<DogRecyclerView
 
 
 
-
 }

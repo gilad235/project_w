@@ -1,7 +1,9 @@
 package com.example.tindog.ui.fff;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +12,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.tindog.CurrentUserDetails;
+import com.example.tindog.MainActivity;
+import com.example.tindog.NewUserActivity;
 import com.example.tindog.R;
 import com.example.tindog.data.User;
 import com.example.tindog.databinding.FragmentFindFluffyFriendItemBinding;
 //import com.example.tindog.databinding.FragmentFindFluffyFriendListBinding;
+import com.example.tindog.ui.login.LoginActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,6 +39,7 @@ import java.util.List;
  * TODO: Replace the implementation with code for your data type.
  */
 public class FriendRecyclerViewAdapter extends RecyclerView.Adapter<FriendRecyclerViewAdapter.ViewHolder> {
+    String keyToDelete;
 
     private final List<User> mValues;
 
@@ -55,60 +64,78 @@ public class FriendRecyclerViewAdapter extends RecyclerView.Adapter<FriendRecycl
         holder.mDogNameView.setText(holder.mItem.dogName);
 
 
-        String UUID=holder.mItem.getId();
-//        holder.deleteButton.setOnClickListener(view -> {
-//            DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-//            DatabaseReference userQuery = ref.child("users").child("friends").child();
-//            userQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(DataSnapshot dataSnapshot) {
-//                    for (DataSnapshot snap: dataSnapshot.getChildren()) {
-//                        snap.getRef().removeValue();
-//                    }
-//                }
-//
-//                @Override
-//                public void onCancelled(DatabaseError databaseError) {
-//                    Log.e("delete button", "onCancelled", databaseError.toException());
-//                }
-//            });
-//            this.notifyDataSetChanged();
-//
-//        });
+        String UUIDToDelete = holder.mItem.getId();
+        holder.deleteButton.setOnClickListener(view -> {
 
-        if (holder.mItem.pic!=null && !holder.mItem.pic.equals("")  ){
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+            DatabaseReference userQuery = ref.child("users");
+            DatabaseReference myRef = userQuery.child(CurrentUserDetails.getInstance().getUserID());
+
+            DatabaseReference myRef_1 = myRef.child("friends");
+            myRef_1.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if (!task.isSuccessful()) {
+                        Log.e("firebase", "Error getting data", task.getException());
+                    } else {
+                        Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                        for (DataSnapshot snap : task.getResult().getChildren()) {
+                            User cur_user = snap.getValue(User.class);
+                            if (cur_user.getId().equals(UUIDToDelete)) {
+
+                                keyToDelete = snap.getKey();
+                                break;
+                            }
+                        }
+                        myRef_1.child(keyToDelete).setValue(null);
+                        notifyDataSetChanged();
+
+                    }
+                }
+            });
+
+
+
+
+
+
+        this.notifyDataSetChanged();
+
+        });
+
+        if(holder.mItem.pic!=null&&!holder.mItem.pic.equals("")){
         Picasso.get().load(holder.mItem.pic).into(holder.mImg);
         }
         Picasso.get().load("https://image.flaticon.com/icons/png/512/194/194279.png").into(holder.mDogImg);
+        }
+
+@Override
+public int getItemCount(){
+        return mValues.size();
+        }
+
+public class ViewHolder extends RecyclerView.ViewHolder {
+    public final ImageView mImg;
+    public final ImageView mDogImg;
+    public final TextView mNameView;
+    public final TextView mDogNameView;
+    public User mItem;
+    public FloatingActionButton deleteButton;
+
+
+    public ViewHolder(FragmentFindFluffyFriendItemBinding binding) {
+        super(binding.getRoot());
+
+        this.deleteButton = itemView.findViewById(R.id.removeFriend);
+        mImg = binding.userImg;
+        mDogImg = binding.userDogPic;
+        mNameView = binding.userName;
+        mDogNameView = binding.dogName;
     }
 
     @Override
-    public int getItemCount() {
-        return mValues.size();
+    public String toString() {
+        return super.toString() + " '" + mNameView.getText() + "'";
     }
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public final ImageView mImg;
-        public final ImageView mDogImg;
-        public final TextView mNameView;
-        public final TextView mDogNameView;
-        public User mItem;
-        public FloatingActionButton deleteButton;
-
-
-        public ViewHolder(FragmentFindFluffyFriendItemBinding binding) {
-            super(binding.getRoot());
-
-            this.deleteButton=itemView.findViewById(R.id.removeFriend);
-            mImg = binding.userImg;
-            mDogImg = binding.userDogPic;
-            mNameView = binding.userName;
-            mDogNameView = binding.dogName;
-        }
-
-        @Override
-        public String toString() {
-            return super.toString() + " '" + mNameView.getText() + "'";
-        }
-    }
+}
 }
