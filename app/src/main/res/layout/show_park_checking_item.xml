@@ -8,6 +8,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="100dp"
+    android:background="#00C2CB"
+
     >
 
     <ImageView
@@ -17,6 +19,7 @@
         android:layout_margin="@dimen/text_margin"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="8dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
 
         app:layout_constraintRight_toLeftOf="@id/dog_name"

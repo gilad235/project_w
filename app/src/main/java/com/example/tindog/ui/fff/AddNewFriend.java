@@ -123,9 +123,9 @@ public class AddNewFriend extends AppCompatActivity {
 //
 //myRef_2.setValue(friend_user,friend_user.getId());
 
-                            Intent i = new Intent(v.getContext(), openFragmentFFF.class);
+//                            Intent i = new Intent(v.getContext(), openFragmentFFF.class);
                             finish();
-                            v.getContext().startActivity(i);
+//                            v.getContext().startActivity(i);
                         } else {
                             Toast toast = Toast.makeText(getApplicationContext(), "user not found", Toast.LENGTH_SHORT);
                             toast.show();

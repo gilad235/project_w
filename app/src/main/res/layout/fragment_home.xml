@@ -3,24 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00C2CB"
+
     tools:context=".ui.home.HomeFragment">
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="where the bitches at"
-        android:textAlignment="center"
-        android:layout_marginTop="60dp"
-        android:textSize="32dp"
-
-        />
     <!-- TODO: Update blank fragment layout -->
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/img"
+        android:src="@drawable/pet"
 
         />
 
