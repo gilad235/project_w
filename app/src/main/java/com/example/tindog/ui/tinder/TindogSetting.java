@@ -41,7 +41,6 @@ public class TindogSetting extends AppCompatActivity {
             finish();
             v.getContext().startActivity(i);
         });
-
         radioGender.check(R.id.both_button);
         radioCastrated.check(R.id.both_cas_button);
 
