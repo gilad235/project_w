@@ -29,7 +29,7 @@ import android.widget.Toast;
 
 import com.example.tindog.CurrentUserDetails;
 import com.example.tindog.MainActivity;
-import com.example.tindog.MapsActivity;
+//import com.example.tindog.MapsActivity;
 import com.example.tindog.NewUserActivity;
 import com.example.tindog.R;
 import com.example.tindog.data.User;
@@ -82,11 +82,17 @@ public class LoginActivity extends AppCompatActivity {
 
 // Create and launch sign-in intent
         Intent signInIntent = AuthUI.getInstance()
-                .createSignInIntentBuilder()
+                .createSignInIntentBuilder().setIsSmartLockEnabled(false)
                 .setAvailableProviders(providers)
                 .build();
         signInLauncher.launch(signInIntent);
 
+//        startActivityForResult(
+//                AuthUI.getInstance()
+//                        .createSignInIntentBuilder()
+//                        .setIsSmartLockEnabled(false)
+//                        .build(),
+//                1);
     }
 
 
@@ -195,54 +201,55 @@ public class LoginActivity extends AppCompatActivity {
             userSingleton.setUserId(user.getUid());
 
             DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-            database.addListenerForSingleValueEvent(new ValueEventListener() {
+//            database.addListenerForSingleValueEvent(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                    if (snapshot.hasChild("users")) {
+            DatabaseReference myRef = database.child("users");
+            myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if (snapshot.hasChild("users")) {
-                        DatabaseReference myRef = database.child("users");
-                        myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                                if (!task.isSuccessful()) {
-                                    Log.e("firebase", "Error getting data", task.getException());
-                                } else {
-                                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
-                                    for (DataSnapshot snap : task.getResult().getChildren()) {
-                                        User cur_user = snap.getValue(User.class);
-                                        if (cur_user.getId().equals(user.getUid())) {
-                                            user_exist_flag = true;
-                                            break;
-                                        }
-                                    }
-                                    Intent myIntent;
-                                    if (user_exist_flag) {
-                                        myIntent = new Intent(LoginActivity.this, MainActivity.class);
-                                    }
-                                    else{
-                                        myIntent = new Intent(LoginActivity.this, NewUserActivity.class);
-                                    }
-                                    startActivity(myIntent);
-
-
-                                }
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if (!task.isSuccessful()) {
+                        Log.e("firebase", "Error getting data", task.getException());
+                    } else {
+                        Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                        for (DataSnapshot snap : task.getResult().getChildren()) {
+                            User cur_user = snap.getValue(User.class);
+                            if (cur_user.getId().equals(user.getUid())) {
+                                user_exist_flag = true;
+                                break;
                             }
-                        });
+                        }
+                        Intent myIntent;
+                        if (user_exist_flag) {
+                            myIntent = new Intent(LoginActivity.this, MainActivity.class);
+                        } else {
+                            myIntent = new Intent(LoginActivity.this, NewUserActivity.class);
+                        }
+                        startActivity(myIntent);
+
+
                     }
                 }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
             });
+//                    }
+//                }
 
-        } else {
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//
+//                }
+//            });
+
+        }
+        else {
             Toast.makeText(getApplicationContext(), "login fail", Toast.LENGTH_LONG).show();
             // Sign in failed. If response is null the user canceled the
             // sign-in flow using the back button. Otherwise check
             // response.getError().getErrorCode() and handle the error.
             // ...
         }
+
     }
 
 

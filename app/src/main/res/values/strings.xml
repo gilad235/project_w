@@ -7,6 +7,18 @@
     <string name="action_sign_in">Sign in or register</string>
     <string name="add_friend">Add Friend</string>
     <string name="add_user">Sign in</string>
+    <string name="user_name">User Name</string>
+    <string name="dog_name">Dog Name</string>
+    <string name="age">Age</string>
+
+
+    <string name="dog_phone">Phone</string>
+    <string name="text">Text</string>
+    <string name="picture">Picture</string>
+    <integer name="max_length">300</integer>
+
+
+    <string name="save">Save</string>
 
 
     <string name="action_sign_in_short">Sign in</string>
