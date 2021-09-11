@@ -36,18 +36,22 @@
         app:layout_constraintTop_toBottomOf="@id/title"
         android:layout_marginStart="68dp" />
 
-    <Spinner
-        android:id="@+id/min_age_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:prompt="@string/min_age_spinner"
-        android:spinnerMode="dropdown"
+
+    <NumberPicker
+        android:id="@+id/min_age_picker"
+        android:layout_width="89dp"
+        android:layout_height="63dp"
         app:layout_constraintLeft_toRightOf="@id/min_age"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title" />
-
+    <NumberPicker
+        android:id="@+id/max_age_picker"
+        android:layout_width="89dp"
+        android:layout_height="63dp"
+        app:layout_constraintLeft_toRightOf="@id/min_age"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/min_age"
+        />
     <TextView
         android:id="@+id/max_age"
 
@@ -64,17 +68,7 @@
         app:layout_constraintTop_toBottomOf="@id/min_age"
         android:layout_marginStart="68dp" />
 
-    <Spinner
-        android:id="@+id/max_age_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@android:drawable/btn_dropdown"
-        android:prompt="@string/min_age_spinner"
-        android:spinnerMode="dropdown"
-        app:layout_constraintLeft_toRightOf="@id/min_age"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/min_age" />
+
 
 
     <TextView
@@ -105,7 +99,7 @@
         android:layout_marginRight="28dp"
         android:orientation="horizontal"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/max_age_spinner">
+        app:layout_constraintTop_toBottomOf="@id/max_age_picker">
 
 
         <RadioButton
@@ -117,7 +111,7 @@
             android:layout_marginTop="28dp"
             android:text="@string/male"
             app:layout_constraintLeft_toRightOf="@id/gender_text"
-            app:layout_constraintTop_toBottomOf="@id/max_age_spinner" />
+            app:layout_constraintTop_toBottomOf="@id/max_age_picker" />
 
         <RadioButton
             android:id="@+id/female_button"
@@ -129,7 +123,7 @@
             android:layout_marginRight="64dp"
             android:text="@string/female"
             app:layout_constraintRight_toRightOf="@id/male_button"
-            app:layout_constraintTop_toBottomOf="@id/min_age_spinner" />
+            app:layout_constraintTop_toBottomOf="@id/min_age_picker" />
 
         <RadioButton
             android:id="@+id/both_button"
@@ -141,7 +135,7 @@
             android:layout_marginRight="64dp"
             android:text="@string/both"
             app:layout_constraintRight_toRightOf="@id/female_button"
-            app:layout_constraintTop_toBottomOf="@id/min_age_spinner" />
+            app:layout_constraintTop_toBottomOf="@id/min_age_picker" />
     </RadioGroup>
 
 
@@ -186,7 +180,7 @@
             android:layout_marginTop="28dp"
             android:text="@string/yes"
             app:layout_constraintLeft_toRightOf="@id/gender_text"
-            app:layout_constraintTop_toBottomOf="@id/max_age_spinner" />
+            app:layout_constraintTop_toBottomOf="@id/max_age_picker" />
 
         <RadioButton
             android:id="@+id/uncastrated_button"
@@ -198,7 +192,7 @@
             android:layout_marginRight="64dp"
             android:text="@string/no"
             app:layout_constraintRight_toRightOf="@id/male_button"
-            app:layout_constraintTop_toBottomOf="@id/min_age_spinner" />
+            app:layout_constraintTop_toBottomOf="@id/min_age_picker" />
 
         <RadioButton
             android:id="@+id/both_cas_button"
@@ -210,7 +204,7 @@
             android:layout_marginRight="64dp"
             android:text="@string/both"
             app:layout_constraintRight_toRightOf="@id/female_button"
-            app:layout_constraintTop_toBottomOf="@id/min_age_spinner" />
+            app:layout_constraintTop_toBottomOf="@id/min_age_picker" />
     </RadioGroup>
 
     <Button
