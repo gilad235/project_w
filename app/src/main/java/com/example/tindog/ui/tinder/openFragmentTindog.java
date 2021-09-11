@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.FragmentActivity;
 
-public class openFragment extends FragmentActivity {
+public class openFragmentTindog extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

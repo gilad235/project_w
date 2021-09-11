@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.tindog.CurrentUserDetails;
+import com.example.tindog.MainActivity;
 import com.example.tindog.R;
 import com.example.tindog.ui.tinder.AddNewDog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -59,10 +61,20 @@ public class FindFluffyFriendFragment extends Fragment {
         FloatingActionButton remove_button = (FloatingActionButton) view.findViewById(R.id.removeFriend);
 
         add_button.setOnClickListener(v -> {
-            Intent intentToOpenAddDog = new Intent(v.getContext(), AddNewDog.class);
+            Intent intentToOpenAddDog = new Intent(v.getContext(), AddNewFriend.class);
             v.getContext().startActivity(intentToOpenAddDog);
 
         });
+
+        try {
+            System.out.println(CurrentUserDetails.getInstance().getUserID());
+
+
+        } catch (Exception e){
+            System.out.println("catch");
+
+        }
+
         return view;
     }
 }
