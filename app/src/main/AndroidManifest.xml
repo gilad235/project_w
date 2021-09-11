@@ -16,7 +16,11 @@
         android:supportsRtl="true"
         android:name=".CurrentUserDetails"
 
+
         android:theme="@style/Theme.Tindog">
+
+
+
         <activity
             android:name=".ui.tinder.DogDetailsActivity"
             android:exported="true" />

@@ -1,5 +1,6 @@
 package com.example.tindog.data;
 
+import com.example.tindog.ui.park.checkInWarrper;
 import com.google.firebase.database.Exclude;
 
 import java.util.ArrayList;
@@ -11,14 +12,14 @@ public class Park {
     public String name;
     public float x;
     public float y;
-    public ArrayList<User> checkins;
+    public ArrayList<checkInWarrper> checkins;
 
 
     public Park() {
         // Default constructor required for calls to DataSnapshot.getValue(Post.class)
     }
 
-    public Park(String name, float x, float y,ArrayList<User> users) {
+    public Park(String name, float x, float y,ArrayList<checkInWarrper> users) {
         this.name = name;
         this.x = x;
         this.y = y;
@@ -38,10 +39,5 @@ public class Park {
         return result;
     }
 
-    public void add_checkIn(User user){
-        checkins.add(user);
-        //add the checking to firebase here
 
-
-    }
 }

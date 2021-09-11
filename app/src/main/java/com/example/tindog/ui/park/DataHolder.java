@@ -24,18 +24,20 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
 public class DataHolder {
-    ArrayList<User> cur_checkins;
+    ArrayList<checkInWarrper> cur_checkins;
 
     private static Context myContext =null;
     private static SharedPreferences pref;
-    private static final MutableLiveData<List<User>> myMutable = new MutableLiveData<>();
-    public static final LiveData<List<User>> myLiveDate=myMutable;
+    private static final MutableLiveData<List<checkInWarrper>> myMutable = new MutableLiveData<>();
+    public static final LiveData<List<checkInWarrper>> myLiveDate=myMutable;
     private String parkName;
     private final DatabaseReference db;
 
@@ -70,9 +72,19 @@ public class DataHolder {
                         Objects.requireNonNull(snapshot.getValue(Park.class));
                         if (Objects.requireNonNull(snapshot.getValue(Park.class)).name.equals(parkName)){
 
-                            ArrayList<User> tempUsers= Objects.requireNonNull(snapshot.getValue(Park.class)).checkins;
+                            ArrayList<checkInWarrper> tempUsers= Objects.requireNonNull(snapshot.getValue(Park.class)).checkins;
                             if (tempUsers !=null){
-                                cur_checkins=tempUsers;
+                                ArrayList<checkInWarrper> filterd = new ArrayList<>();
+                                Date c = Calendar.getInstance().getTime();
+
+                                for(checkInWarrper wap :tempUsers){
+                                    if ( (c.getTime()-wap.time.getTime())/(60*60*1000)>2){
+                                        continue;
+                                    }
+                                    filterd.add(wap);
+
+                                }
+                                cur_checkins=filterd;
                                 myMutable.setValue(getCurrentItems());
                             }
                         }
@@ -92,7 +104,7 @@ public class DataHolder {
 
     }
 
-    public void add_item(User item){
+    public void add_item(checkInWarrper item){
 
         // add new checking
         if(!cur_checkins.contains(item)){
@@ -109,19 +121,19 @@ public class DataHolder {
 
     }
 
-    public User getItem(String curnum){
-        for (User todo:cur_checkins) {
-            if (todo.id.equals(curnum)){
-                return todo;
+//    public User getItem(String curnum){
+//        for (checkInWarrper todo:cur_checkins) {
+//            if (todo.user.id.equals(curnum)){
+//                return todo;
+//
+//            }
+//
+//        }
+//
+//        return null;
+//    }
 
-            }
-
-        }
-
-        return null;
-    }
-
-    public LiveData<List<User>> getLiveData() {
+    public LiveData<List<checkInWarrper>> getLiveData() {
         return myLiveDate;
     }
 
@@ -129,10 +141,10 @@ public class DataHolder {
 
 
 
-    public ArrayList<User> getCurrentItems() {
+    public ArrayList<checkInWarrper> getCurrentItems() {
 
 
-        return new ArrayList<>(cur_checkins); }
+        return new ArrayList<checkInWarrper>(cur_checkins); }
 
     private void updateDbParkCheckin(){
         db.child("parks").child(parkName).child("checkins").setValue(getCurrentItems());
@@ -151,7 +163,7 @@ public class DataHolder {
 
 
 
-    public void deleteItem(User item) {
+    public void deleteItem(checkInWarrper item) {
         if(cur_checkins.contains(item)){
             cur_checkins.remove(item);
             myMutable.setValue(getCurrentItems());

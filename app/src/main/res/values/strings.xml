@@ -66,4 +66,5 @@
     <string name="max_age">maximum age</string>
     <string name="checkin1">checkIn</string>
     <string name="checkout">checkout</string>
+    <string name="signout">signOut</string>
 </resources>

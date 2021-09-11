@@ -30,6 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class parkCheckInActivity extends AppCompatActivity {
@@ -38,16 +39,17 @@ public class parkCheckInActivity extends AppCompatActivity {
     public LinearLayoutManager layoutManager = null;
     ParkActivityAdapter cur_adapter;
     public String parkName;
+    checkInWarrper warpUser;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_park_checking_fragment);
-        parkName=getIntent().getStringExtra("parkName");
+        parkName = getIntent().getStringExtra("parkName");
         if (holder == null) {
             // remove and make static
-            holder = new DataHolder(this,parkName);
+            holder = new DataHolder(this, parkName);
         }
 
         if (cur_adapter == null) {
@@ -64,11 +66,11 @@ public class parkCheckInActivity extends AppCompatActivity {
 
 //        loadjobs();
 
-        holder.getLiveData().observe(this, new Observer<List<User>>() {
+        holder.getLiveData().observe(this, new Observer<List<checkInWarrper>>() {
 
 
             @Override
-            public void onChanged(List<User> todoItems) {
+            public void onChanged(List<checkInWarrper> todoItems) {
                 {
                     cur_adapter.notifyDataSetChanged();
 
@@ -76,17 +78,16 @@ public class parkCheckInActivity extends AppCompatActivity {
             }
 
 
-
         });
 
         createNewTask.setOnClickListener(v -> {
+                warpUser = new checkInWarrper(CurrentUserDetails.getInstance().getCurUser(), Calendar.getInstance().getTime());
 
-                        holder.add_item(CurrentUserDetails.getInstance().getCurUser());
+                    holder.add_item(warpUser);
 
 
-                        // make the rcycler show this first
-                        cur_adapter.notifyDataSetChanged();
-
+                    // make the rcycler show this first
+                    cur_adapter.notifyDataSetChanged();
 
 
                 }
@@ -95,18 +96,17 @@ public class parkCheckInActivity extends AppCompatActivity {
 
         checkout.setOnClickListener(v -> {
 
-            holder.deleteItem(CurrentUserDetails.getInstance().getCurUser());
+            holder.deleteItem(warpUser);
 
             // make the rcycler show this first
             cur_adapter.notifyDataSetChanged();
-
 
 
         });
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
 
 
-        DatabaseReference docRef =  db.child("parks").child(parkName);
+        DatabaseReference docRef = db.child("parks").child(parkName);
 
         docRef.addChildEventListener(new ChildEventListener() {
 
@@ -151,10 +151,7 @@ public class parkCheckInActivity extends AppCompatActivity {
         });
 
 
-
-
-
-        }
+    }
 
 
 }
