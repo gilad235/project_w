@@ -37,6 +37,7 @@
     <string name="tindog_settings">Settings</string>
 
     <string name="menu_home">Home</string>
+    <string name="menu_sign_out">SignOut</string>
     <string name="menu_tindog">Tindog</string>
     <string name="menu_park">Park</string>
     <string name="menu_fff">Find Fluffy Fried</string>
