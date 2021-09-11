@@ -12,5 +12,9 @@ public class openFragmentTindog extends FragmentActivity {
             getSupportFragmentManager().beginTransaction()
                     .add(android.R.id.content, new DogFragment()).commit();}
     }
+
+
+
+
 }
 

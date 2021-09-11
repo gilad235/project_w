@@ -89,7 +89,6 @@ public class Dog implements Serializable {
     }
 
     public boolean allFill() {
-        return ((this.name != null && !this.name.equals("")) && this.age != -1 && (this.phone != null && !this.phone.equals("")) &&
-                (this.pic != null && !this.pic.equals("")) && (this.text != null && !this.text.equals("")) && this.isGenderFill);
+        return ((this.name != null && !this.name.equals("")) && this.age != -1 && (this.phone != null && !this.phone.equals("")) && (this.text != null && !this.text.equals("")) && this.isGenderFill);
     }
 }

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.tindog.R;
 import com.example.tindog.ui.fff.FindFluffyFriendFragment;
@@ -60,13 +61,17 @@ public class DogFragment extends Fragment {
         FloatingActionButton filter_button = (FloatingActionButton) view.findViewById(R.id.filter);
         add_button.setOnClickListener(v -> {
             Intent intentToOpenAddDog = new Intent(v.getContext(), AddNewDog.class);
+
             v.getContext().startActivity(intentToOpenAddDog);
 
         });
 
         filter_button.setOnClickListener(v -> {
+//            closefragment();
             Intent intentToOpenAddDog = new Intent(v.getContext(), TindogSetting.class);
+//            getFragmentManagerManager().beginTransaction().remove(new DogFragment()).commit();
             v.getContext().startActivity(intentToOpenAddDog);
+            reloadFragment();
 
         });
         return view;
@@ -75,6 +80,15 @@ public class DogFragment extends Fragment {
 
 
     }
+    public void reloadFragment(){
+        Fragment curFrg = getParentFragmentManager().findFragmentByTag("dogs");
+        FragmentTransaction ft = getParentFragmentManager().beginTransaction();
+        ft.detach(curFrg);
+        ft.attach(curFrg);
+        ft.commit();
 
+    }
+    private void closefragment() {
+        getActivity().getFragmentManager().popBackStack();    }
 
 }
