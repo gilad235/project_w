@@ -87,14 +87,12 @@ public class ParkFragment extends Fragment {
 //            });
 
 
-
             myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DataSnapshot> task) {
                     if (!task.isSuccessful()) {
                         Log.e("firebase", "Error getting data", task.getException());
-                    }
-                    else {
+                    } else {
                         Log.d("firebase", String.valueOf(task.getResult().getValue()));
 
                         for (DataSnapshot snapshot : task.getResult().getChildren()) {
@@ -108,20 +106,21 @@ public class ParkFragment extends Fragment {
             });
 
             googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-                @Override
-                public boolean onMarkerClick(Marker marker) {
-                    if (marker!=null){
-                        Intent intent = new Intent(getActivity(), parkCheckInActivity.class);
-                        intent.putExtra("parkName",marker.getTitle());
-                        startActivity(intent);
+                                                   @Override
+                                                   public boolean onMarkerClick(Marker marker) {
+                                                       if (marker != null) {
+                                                           Intent intent = new Intent(getActivity(), parkCheckInActivity.class);
+                                                           intent.putExtra("parkName", marker.getTitle());
+                                                           startActivity(intent);
 
 
-                        return true;
-                    }
-                    return false;
-                }}
+                                                           return true;
+                                                       }
+                                                       return false;
+                                                   }
+                                               }
 
-                );
+            );
 
         }
     };
@@ -145,19 +144,19 @@ public class ParkFragment extends Fragment {
     }
 
 
-//    public void onTimeAddParks(){
-//        ArrayList<Park> parks = new ArrayList<>();
-//        parks.add(new Park("Gan Meir",(float)32.0731,(float)34.7709533,new ArrayList<User>()));
-//        parks.add(new Park("Kiryat Sefer Park",(float)32.069922,(float)34.7775208,new ArrayList<User>()));
-//        parks.add(new Park("Mordehai Garden",(float)32.069497,(float)34.772995,new ArrayList<User>()));
-//        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
-//
-//        for(Park p: parks){
-//            db.child("parks").child(p.name).setValue(p);
-//
-//
-//        }
+    public void onTimeAddParks() {
+        ArrayList<Park> parks = new ArrayList<>();
+        parks.add(new Park("Gan Meir", (float) 32.0731, (float) 34.7709533, new ArrayList<checkInWarrper>()));
+        parks.add(new Park("Kiryat Sefer Park", (float) 32.069922, (float) 34.7775208, new ArrayList<checkInWarrper>()));
+        parks.add(new Park("Mordehai Garden", (float) 32.069497, (float) 34.772995, new ArrayList<checkInWarrper>()));
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
 
+        for (Park p : parks) {
+            db.child("parks").child(p.name).setValue(p);
+
+
+        }
 
 
     }
+}

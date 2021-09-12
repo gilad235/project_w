@@ -18,7 +18,9 @@ import com.example.tindog.data.User;
 import com.example.tindog.databinding.ShowParkCheckingItemBinding;
 import com.squareup.picasso.Picasso;
 
-
+import java.util.Calendar;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 
 public class ParkActivityAdapter extends RecyclerView.Adapter<ParkActivityAdapter.AdapterViewHolder> {
@@ -35,6 +37,7 @@ public class ParkActivityAdapter extends RecyclerView.Adapter<ParkActivityAdapte
         ImageView mDogImg;
         TextView mNameView;
         TextView mDogNameView;
+        TextView mlastSeen;
         User mItem;
 
 
@@ -44,6 +47,7 @@ public class ParkActivityAdapter extends RecyclerView.Adapter<ParkActivityAdapte
             mDogImg = itemView.findViewById(R.id.user_dog_pic);
             mNameView = itemView.findViewById(R.id.user_name);
             mDogNameView = itemView.findViewById(R.id.dog_name);
+            mlastSeen = itemView.findViewById(R.id.last_seen);
 
 
         }
@@ -81,12 +85,21 @@ public class ParkActivityAdapter extends RecyclerView.Adapter<ParkActivityAdapte
 //        holder.root2.setText("...");
 //        holder.mainview.setBackgroundColor(Color.BLUE);
 //        holder.pbar.setProgress((int)cur_item.progress);
+        Date c = Calendar.getInstance().getTime();
 
+        if ((c.getTime()-localDataSet.getCurrentItems().get(position).time.getTime())/(60*60*1000)>1){
+            localDataSet.deleteItem(localDataSet.getCurrentItems().get(position));
+            this.notifyDataSetChanged();
+        }
+        holder.mItem = localDataSet.getCurrentItems().get(position).user;
+        holder.mNameView.setText("Owner Name : "+holder.mItem.name);
+        holder.mDogNameView.setText("Dog Name : "+holder.mItem.dogName);
+        holder.mUserPhone.setText("Owner Phone : "+holder.mItem.phone);
+        long diffInMillies =((c.getTime()-localDataSet.getCurrentItems().get(position).time.getTime())/(60*1000));
+        long diff = TimeUnit.MINUTES.convert(diffInMillies, TimeUnit.MILLISECONDS);
 
-        holder.mItem = localDataSet.getCurrentItems().get(position);
-        holder.mNameView.setText(holder.mItem.name);
-        holder.mDogNameView.setText(holder.mItem.dogName);
-        holder.mDogNameView.setText(holder.mItem.phone);
+        String title= "User last seen "+ String.valueOf(diff);
+        holder.mlastSeen.setText(title+ " Minute ago ");
 
         Picasso.get().load("https://image.flaticon.com/icons/png/512/194/194279.png").into(holder.mDogImg);
 

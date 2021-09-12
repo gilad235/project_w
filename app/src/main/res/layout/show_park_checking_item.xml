@@ -7,7 +7,9 @@
 
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="50dp"
+    android:minHeight="100dp"
+    android:background="#00C2CB"
+
     >
 
     <ImageView
@@ -17,6 +19,7 @@
         android:layout_margin="@dimen/text_margin"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="8dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
 
         app:layout_constraintRight_toLeftOf="@id/dog_name"
@@ -26,8 +29,8 @@
 
     <TextView
         android:id="@+id/dog_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_margin="@dimen/text_margin"
         android:textAppearance="?attr/textAppearanceListItem"
         app:layout_constraintLeft_toRightOf="@id/user_dog_pic"
@@ -45,15 +48,26 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/dog_name"
 
+        app:layout_constraintRight_toLeftOf="@id/last_seen" />
+
+    <TextView
+        android:id="@+id/last_seen"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/text_margin"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/user_name"
+
         app:layout_constraintRight_toLeftOf="@id/user_phone" />
 
     <TextView
         android:id="@+id/user_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_margin="@dimen/text_margin"
         android:textAppearance="?attr/textAppearanceListItem"
-        app:layout_constraintLeft_toRightOf="@id/user_name"
+        app:layout_constraintLeft_toRightOf="@id/last_seen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
