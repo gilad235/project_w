@@ -4,9 +4,11 @@ import android.app.Application;
 
 import com.example.tindog.data.User;
 import com.example.tindog.ui.tinder.FilterData;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class CurrentUserDetails extends Application {
     private String userId;
+
     public FilterData userFilter;
     private User curUser;
     public String getUserID(){
@@ -28,7 +30,10 @@ public class CurrentUserDetails extends Application {
     @Override
     public void onCreate() {
 
+
         super.onCreate();
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         instance=this;
         this.userId="";
         this.curUser=null;
