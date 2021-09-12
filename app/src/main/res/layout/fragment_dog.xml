@@ -37,11 +37,11 @@
 
     <fragment
         android:id="@+id/list_dogs"
-        android:tag="dogs"
         android:name="com.example.tindog.ui.tinder.DogListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:label="@string/menu_fff"
+        android:tag="dogs"
         app:layout_anchorGravity="center"
         tools:layout="@layout/fragment_dog_list" />
 
