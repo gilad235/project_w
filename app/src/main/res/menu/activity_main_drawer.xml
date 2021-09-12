@@ -24,7 +24,7 @@
             android:title="@string/menu_fff" />
         <item
             android:id="@+id/nav_logout"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/exit"
             android:title="@string/menu_sign_out" />
 
     </group>
