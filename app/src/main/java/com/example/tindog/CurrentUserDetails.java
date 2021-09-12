@@ -8,6 +8,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class CurrentUserDetails extends Application {
     private String userId;
+
     public FilterData userFilter;
     private User curUser;
     public String getUserID(){
