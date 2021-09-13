@@ -32,7 +32,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="75dp"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
+        app:srcCompat="@drawable/filter" />
 
 
     <fragment

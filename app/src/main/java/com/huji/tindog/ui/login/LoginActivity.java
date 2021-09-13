@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
+import com.huji.tindog.R;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -65,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
 // Create and launch sign-in intent
         Intent signInIntent = AuthUI.getInstance()
                 .createSignInIntentBuilder()
-                .setAvailableProviders(providers)
+                .setAvailableProviders(providers).setTheme(R.style.LoginTheme)
                 .build();
         signInLauncher.launch(signInIntent);
 

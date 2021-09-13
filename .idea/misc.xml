@@ -3,6 +3,37 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/drawable/exit.xml" value="0.19537037037037036" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.35885416666666664" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.35885416666666664" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/drawable/rectangle.xml" value="0.2911458333333333" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/activity_dog_details.xml" value="0.21875" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/activity_dog_form.xml" value="0.21875" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/activity_login.xml" value="0.21875" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/activity_main.xml" value="0.21875" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/activity_maps.xml" value="0.37228260869565216" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/add_new_dog_fff.xml" value="0.21875" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/add_new_dog_tindog.xml" value="0.34270833333333334" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/add_new_user_login.xml" value="0.34270833333333334" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/app_bar_main.xml" value="0.34270833333333334" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/content_main.xml" value="0.34270833333333334" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/fragment_dog.xml" value="0.34270833333333334" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/fragment_dog_item.xml" value="0.34270833333333334" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/fragment_dog_list.xml" value="0.34270833333333334" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/fragment_find_fluffy_friend.xml" value="0.34270833333333334" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/fragment_find_fluffy_friend_item.xml" value="0.34270833333333334" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/fragment_find_fluffy_friend_list.xml" value="0.34270833333333334" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/fragment_home.xml" value="0.34270833333333334" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/fragment_park.xml" value="0.34270833333333334" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/fragment_sign_out.xml" value="0.34270833333333334" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/nav_header_main.xml" value="0.21875" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/park_framelayout.xml" value="0.34270833333333334" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/show_park_checking_fragment.xml" value="0.34270833333333334" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/show_park_checking_item.xml" value="0.34270833333333334" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/layout/tindog_settings.xml" value="0.34270833333333334" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/menu/activity_main_drawer.xml" value="0.72" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2911458333333333" />
+        <entry key="..\:/Users/rotem/Desktop/PostPCFinal/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2911458333333333" />
         <entry key="..\:/Users/rotem/StudioProjects/project_w/app/src/main/res/layout/activity_dog_details.xml" value="0.1796875" />
         <entry key="..\:/Users/rotem/StudioProjects/project_w/app/src/main/res/layout/activity_dog_form.xml" value="0.1796875" />
         <entry key="..\:/Users/rotem/StudioProjects/project_w/app/src/main/res/layout/activity_main.xml" value="0.16927083333333334" />

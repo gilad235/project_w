@@ -68,6 +68,8 @@
         <activity
             android:name="com.huji.tindog.ui.login.LoginActivity"
             android:exported="true"
+
+
             android:label="@string/title_activity_login">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
