@@ -9,7 +9,7 @@ plugins {
 
 
 }
-
+apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'  // Google Services plugin
 
 
@@ -17,7 +17,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.tindog"
+        applicationId "com.huji.tindog"
         minSdk 21
         targetSdk 31
         versionCode 1

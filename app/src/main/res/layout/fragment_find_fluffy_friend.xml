@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/list_fff"
-        android:name="com.example.tindog.ui.fff.FindFluffyFriendListFragment"
+        android:name="com.huji.tindog.ui.fff.FindFluffyFriendListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:label="@string/menu_fff"

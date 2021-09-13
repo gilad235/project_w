@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1088210175803",
+    "firebase_url": "https://tindog-1e65a-default-rtdb.firebaseio.com",
     "project_id": "tindog-1e65a",
     "storage_bucket": "tindog-1e65a.appspot.com"
   },
@@ -27,7 +28,36 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1088210175803-p9fvmanep7tm5q2kuj3uni50jkq4pudt.apps.googleusercontent.com",
+              "client_id": "1088210175803-69qfl760mpj7mbogfm9n4rc91igsdtvl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088210175803:android:56002f5a2b7cff1d58191e",
+        "android_client_info": {
+          "package_name": "com.huji.tindog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088210175803-p9fvmanep7tm5q2kuj3uni50jkq4pudt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2-0P-6fdhYLwdKbVwwBrWjs6UrXneMYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088210175803-69qfl760mpj7mbogfm9n4rc91igsdtvl.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
