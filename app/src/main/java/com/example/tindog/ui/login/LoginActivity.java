@@ -48,7 +48,8 @@ public class LoginActivity extends AppCompatActivity {
 
 //        binding = ActivityLoginBinding.inflate(getLayoutInflater());
 //        setContentView(binding.getRoot());
-        final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
+        final ActivityResultLauncher<Intent> signInLauncher =
+                registerForActivityResult(
                 new FirebaseAuthUIActivityResultContract(),
                 new ActivityResultCallback<FirebaseAuthUIAuthenticationResult>() {
                     @Override
