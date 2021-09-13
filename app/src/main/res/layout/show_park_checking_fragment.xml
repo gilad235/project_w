@@ -17,7 +17,7 @@
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add"
+        app:srcCompat="@drawable/place"
         android:contentDescription="@string/checkin1" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -29,18 +29,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/buttonCreateTodoItem"
         app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@android:drawable/ic_delete"
+        app:srcCompat="@drawable/removefriend"
         android:contentDescription="@string/checkout" />
-
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerTodoItemsList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/buttonCreateTodoItem"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/buttonCreateTodoItem" />
-
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

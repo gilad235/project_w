@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.tindog.ui.home.HomeFragment"
+        android:name="com.huji.tindog.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_park"
-        android:name="com.example.tindog.ui.park.ParkFragment"
+        android:name="com.huji.tindog.ui.park.ParkFragment"
         android:label="@string/menu_park"
         tools:layout="@layout/fragment_park" />
 
     <fragment
         android:id="@+id/nav_tindog"
-        android:name="com.example.tindog.ui.tinder.DogFragment"
+        android:name="com.huji.tindog.ui.tinder.DogFragment"
         android:label="@string/menu_tindog"
         tools:layout="@layout/fragment_dog_list" />
 
 
     <fragment
         android:id="@+id/nav_fff"
-        android:name="com.example.tindog.ui.fff.FindFluffyFriendFragment"
+        android:name="com.huji.tindog.ui.fff.FindFluffyFriendFragment"
         android:label="@string/menu_fff"
         tools:layout="@layout/fragment_find_fluffy_friend" />
     <fragment
         android:id="@+id/nav_logout"
-        android:name="com.example.tindog.ui.login.LogOutFragment"
+        android:name="com.huji.tindog.ui.login.LogOutFragment"
         android:label="@string/menu_fff"
         tools:layout="@layout/fragment_find_fluffy_friend" />
 

@@ -32,12 +32,12 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="75dp"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
+        app:srcCompat="@drawable/filter" />
 
 
     <fragment
         android:id="@+id/list_dogs"
-        android:name="com.example.tindog.ui.tinder.DogListFragment"
+        android:name="com.huji.tindog.ui.tinder.DogListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:label="@string/menu_fff"
