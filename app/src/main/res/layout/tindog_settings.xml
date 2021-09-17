@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/"
     xmlns:tools2="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#00C2CB"
+    android:background="@drawable/nose_dog"
 
     android:layout_height="match_parent">
 
@@ -214,8 +214,10 @@
         android:id="@+id/buttonFinish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="176dp"
         android:text="@string/done"
+        android:backgroundTint="#3E7476"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

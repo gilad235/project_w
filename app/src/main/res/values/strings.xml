@@ -33,6 +33,7 @@
     <string name="nav_header_subtitle">endless poawssibilities</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_profile">Profile</string>
 
     <string name="tindog_settings">Settings</string>
 
@@ -68,4 +69,5 @@
     <string name="checkin1">checkIn</string>
     <string name="checkout">checkout</string>
     <string name="dont_leave">please dont leave me</string>
+    <string name="showProfile">showProfile</string>
 </resources>
