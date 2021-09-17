@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#00C2CB"
-
+    android:background="@drawable/bulldog"
     android:layout_height="match_parent"
     tools:context=".ui.park.parkCheckInActivity">
 
@@ -17,7 +16,7 @@
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/place"
+        app:srcCompat="@drawable/ic_baseline_add_location_alt_24"
         android:contentDescription="@string/checkin1" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -29,7 +28,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/buttonCreateTodoItem"
         app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/removefriend"
+        app:srcCompat="@drawable/ic_baseline_cancel_24"
         android:contentDescription="@string/checkout" />
 
 

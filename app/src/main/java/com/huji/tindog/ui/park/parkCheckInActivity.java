@@ -3,6 +3,7 @@ package com.huji.tindog.ui.park;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -13,8 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.huji.tindog.CurrentUserDetails;
 import com.huji.tindog.R;
-import com.huji.tindog.databinding.ActivityDogDetailsBinding;
-import com.huji.tindog.databinding.ActivityDogFormBinding;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -22,6 +22,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.List;
 
@@ -50,10 +52,27 @@ public class parkCheckInActivity extends AppCompatActivity {
         FloatingActionButton createNewTask = findViewById(R.id.buttonCreateTodoItem);
         FloatingActionButton checkout = findViewById(R.id.checkout);
         RecyclerView recyclerList = findViewById(R.id.recyclerTodoItemsList);
+
         recyclerList.setAdapter(cur_adapter);
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerList.setLayoutManager(layoutManager);
         createNewTask.setEnabled(true);
+
+/*        recyclerList.setOnClickListener(
+                new RecyclerItemClickListener(this, recyclerList, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+
+
+                    }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+
+                    }
+
+
+                }));*/
 
 
 //        loadjobs();
@@ -73,7 +92,7 @@ public class parkCheckInActivity extends AppCompatActivity {
         });
 
         createNewTask.setOnClickListener(v -> {
-                warpUser = new checkInWarrper(CurrentUserDetails.getInstance().getCurUser(), Calendar.getInstance().getTime());
+                warpUser = new checkInWarrper(CurrentUserDetails.getInstance().getCurUser(), turnDateToString(java.time.LocalDateTime.now()));
 
                     holder.add_item(warpUser);
 
@@ -86,9 +105,12 @@ public class parkCheckInActivity extends AppCompatActivity {
         );
 
 
+
+
         checkout.setOnClickListener(v -> {
 
-            holder.deleteItem(warpUser);
+
+            holder.deleteItem(CurrentUserDetails.getInstance().getCurUser());
 
             // make the rcycler show this first
             cur_adapter.notifyDataSetChanged();
@@ -141,6 +163,16 @@ public class parkCheckInActivity extends AppCompatActivity {
 
 
         });
+
+
+    }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+
+    public  String turnDateToString(LocalDateTime s){
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+        return s.format(formatter);
+
+
 
 
     }

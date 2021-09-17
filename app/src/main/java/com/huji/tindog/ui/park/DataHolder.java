@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.huji.tindog.data.User;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -68,10 +69,9 @@ public class DataHolder {
                             ArrayList<checkInWarrper> tempUsers= Objects.requireNonNull(snapshot.getValue(Park.class)).checkins;
                             if (tempUsers !=null){
                                 ArrayList<checkInWarrper> filterd = new ArrayList<>();
-                                Date c = Calendar.getInstance().getTime();
 
                                 for(checkInWarrper wap :tempUsers){
-                                    if ( (c.getTime()-wap.time.getTime())/(60*60*1000)>2){
+                                    if ( wap.getEditDate()>60){
                                         continue;
                                     }
                                     filterd.add(wap);
@@ -156,9 +156,17 @@ public class DataHolder {
 
 
 
-    public void deleteItem(checkInWarrper item) {
-        if(cur_checkins.contains(item)){
-            cur_checkins.remove(item);
+    public void deleteItem(User item) {
+        checkInWarrper toDel = null;
+        for (checkInWarrper w:cur_checkins){
+            if(w.user.id.equals(item.id)){
+                toDel= w;
+                break;
+            }
+        }
+
+        if(toDel!=null){
+            cur_checkins.remove(toDel);
             myMutable.setValue(getCurrentItems());
             updateDbParkCheckin();
         }

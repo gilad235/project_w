@@ -7,16 +7,16 @@
 
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="100dp"
-    android:background="@drawable/rectangle"
+    android:minHeight="150dp"
+    android:background="@drawable/dog_gradient"
 
     >
 
 
     <ImageView
         android:id="@+id/user_dog_pic"
-        android:layout_width="38dp"
-        android:layout_height="64dp"
+        android:layout_width="60dp"
+        android:layout_height="74dp"
         android:layout_margin="@dimen/text_margin"
         android:layout_marginStart="16dp"
 
@@ -24,65 +24,81 @@
 
         app:layout_constraintLeft_toLeftOf="parent"
 
-        app:layout_constraintRight_toLeftOf="@id/dog_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/dog_name"
-        android:layout_width="52dp"
-        android:layout_height="77dp"
-        android:layout_margin="@dimen/text_margin"
-        android:layout_marginTop="16dp"
-        android:text="Dog name: "
+        android:layout_width="60dp"
+        android:layout_height="74dp"
+        android:text="Dog name:"
         android:textSize="14sp"
-        android:textStyle="bold"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/user_dog_pic"
-        app:layout_constraintRight_toLeftOf="@id/user_name"
+        app:layout_constraintLeft_toLeftOf="parent"
 
-        app:layout_constraintTop_toTopOf="parent" />
+
+        app:layout_constraintRight_toLeftOf="@id/user_name" />
 
     <TextView
         android:id="@+id/user_name"
-        android:layout_width="61dp"
-        android:layout_height="75dp"
-        android:layout_margin="@dimen/text_margin"
-        android:text="Owner name: "
+        android:layout_width="60dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="12dp"
+        android:text="Owner name: \n"
         android:textSize="14sp"
-        android:textStyle="bold"
+        android:textStyle="bold|italic"
         app:layout_constraintLeft_toRightOf="@id/dog_name"
-        app:layout_constraintRight_toLeftOf="@id/last_seen"
 
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintRight_toLeftOf="@id/last_seen"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
         android:id="@+id/last_seen"
-        android:layout_width="62dp"
-        android:layout_height="72dp"
-        android:layout_margin="@dimen/text_margin"
+        android:layout_width="60dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="12dp"
         android:text="Last seen: "
         android:textSize="14sp"
-        android:textStyle="bold"
+        android:textStyle="bold|italic"
         app:layout_constraintLeft_toRightOf="@id/user_name"
-        app:layout_constraintRight_toLeftOf="@id/user_phone"
 
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintRight_toLeftOf="@id/user_phone"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <TextView
         android:id="@+id/user_phone"
         android:layout_width="60dp"
         android:layout_height="74dp"
-        android:layout_margin="@dimen/text_margin"
+        android:layout_marginTop="12dp"
         android:text="Phone: "
-        android:textSize="14sp"
-        android:textStyle="bold"
         android:textAppearance="?attr/textAppearanceListItem"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="14sp"
+        android:textStyle="bold|italic"
         app:layout_constraintLeft_toRightOf="@id/last_seen"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
 
 
         />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_friend_button"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:contentDescription="@string/add_friend"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/user_phone"
+        app:srcCompat="@drawable/ic_baseline_person_add_24"
+        />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
